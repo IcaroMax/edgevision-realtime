@@ -1,0 +1,57 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# PyCharm / VSCode
+.idea/
+.vscode/
+
+# Testing & Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Model Weights and Engines (large binary files)
+*.pt
+*.engine
+*.onnx
+models/*.pt
+models/*.engine
+models/*.onnx
+
+# Local storage and test videos
+*.mp4
+*.avi
+*.mkv
+data/
+storage/
+out/
+.env

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EdgeVision-RealTime | AI Computer Vision Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="logo-badge">EV</div>
+        <div class="brand-text">
+          <h1>EdgeVision-RealTime</h1>
+          <span class="subtitle">Edge AI Vision & Security Perimeter Pipeline</span>
+        </div>
+      </div>
+
+      <div class="header-status">
+        <div class="status-pill" id="ws-status">
+          <span class="dot connecting"></span>
+          <span class="status-label">Connecting WebSocket...</span>
+        </div>
+        <div class="source-toggle">
+          <button id="btn-server-stream" class="btn active">Server Feed</button>
+          <button id="btn-webcam-stream" class="btn">Local Webcam</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Metrics Bar -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <span class="metric-title">Inference Latency</span>
+        <div class="metric-value-group">
+          <span class="metric-value" id="val-latency">--</span>
+          <span class="metric-unit">ms</span>
+        </div>
+        <span class="metric-sub" id="sub-engine">NVIDIA TensorRT / FP16</span>
+      </div>
+
+      <div class="metric-card">
+        <span class="metric-title">Processing Throughput</span>
+        <div class="metric-value-group">
+          <span class="metric-value" id="val-fps">--</span>
+          <span class="metric-unit">FPS</span>
+        </div>
+        <span class="metric-sub">Target: 30.0 FPS</span>
+      </div>
+
+      <div class="metric-card">
+        <span class="metric-title">Active Track IDs</span>
+        <div class="metric-value-group">
+          <span class="metric-value" id="val-tracks">0</span>
+          <span class="metric-unit">objs</span>
+        </div>
+        <span class="metric-sub">ByteTrack Kalman Filter</span>
+      </div>
+
+      <div class="metric-card" id="card-security">
+        <span class="metric-title">Perimeter Security Status</span>
+        <div class="security-status-badge secure" id="badge-security">
+          SECURE
+        </div>
+        <span class="metric-sub" id="sub-zone-name">Restricted Area Alpha</span>
+      </div>
+    </section>
+
+    <!-- Main Workspace -->
+    <main class="viewport-layout">
+      <!-- Video / Canvas Viewport -->
+      <div class="canvas-wrapper">
+        <div class="canvas-header">
+          <span class="viewport-tag">CANVAS RENDERER (60 FPS)</span>
+          <div class="viewport-actions">
+            <span class="resolution-badge" id="res-badge">640 × 480</span>
+          </div>
+        </div>
+        <div class="canvas-stage">
+          <canvas id="vision-canvas" width="640" height="480"></canvas>
+          <video id="webcam-video" playsinline muted style="display: none;"></video>
+        </div>
+      </div>
+
+      <!-- Real-Time Event Audit Log -->
+      <aside class="sidebar-events">
+        <div class="sidebar-header">
+          <h3>Security Event Log</h3>
+          <span class="event-count" id="event-counter">0 events</span>
+        </div>
+        <div class="events-scroll" id="events-list">
+          <div class="empty-state">No security breaches detected. Monitored perimeter is clear.</div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <span>Architected by <b>IcaroMax</b> | Production Ready AI Engineering</span>
+      <div class="footer-links">
+        <a href="https://github.com/IcaroMax/edgevision-realtime" target="_blank" rel="noopener">GitHub Repository</a>
+        <span>•</span>
+        <a href="/docs" target="_blank">FastAPI OpenAPI Specs</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
